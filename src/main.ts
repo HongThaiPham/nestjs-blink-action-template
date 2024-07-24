@@ -4,6 +4,9 @@ import { ActionHeaderInterceptor } from './interceptors/action-header/action-hea
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: '*',
+  });
   app.useGlobalInterceptors(new ActionHeaderInterceptor());
   await app.listen(3000);
 }

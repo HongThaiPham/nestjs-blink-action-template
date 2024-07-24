@@ -1,4 +1,4 @@
-import { Controller, Get, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Options, UseInterceptors } from '@nestjs/common';
 import { AppService } from './app.service';
 
 import { ActionHeaderInterceptor } from './interceptors/action-header/action-header.interceptor';
@@ -8,13 +8,13 @@ import { ActionHeaderInterceptor } from './interceptors/action-header/action-hea
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/actions.json')
+  @Get('actions.json')
   getActions() {
     return this.appService.getRules();
   }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Options('*')
+  fakeOptions(): string {
+    return 'ok';
   }
 }

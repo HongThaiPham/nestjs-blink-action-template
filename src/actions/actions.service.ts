@@ -34,7 +34,7 @@ export class ActionsService {
           { label: 'Send 1 SOL', href: `${baseHref}?amount=1` },
           {
             label: 'Send SOL',
-            href: `${baseHref}&amount={amount}`,
+            href: `${baseHref}?amount={amount}`,
             parameters: [
               {
                 name: 'amount',
